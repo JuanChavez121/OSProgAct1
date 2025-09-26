@@ -11,7 +11,13 @@
  * 
  */
 char* readString(char* fileName){
-    //TODO: Replace this line with your code
+    FILE* file = fopen(fileName,"r");
+    char* text = malloc(MAX_LINE_LEN);
+    fgets(text,MAX_LINE_LEN,file);
+    size_t length = strlen(text);
+    text[length - 1] = '\0';
+    fclose(file);
+    return text;
 }
 
 /*
@@ -29,5 +35,21 @@ char* readString(char* fileName){
  * 
  */
 char* mysteryExplode(const char* str){
-    //TODO: Replace this line with your code
+    int length = strlen(str);
+    int totalSize = 0;
+    for(int i = 1; i<= length;i++){
+        totalSize = totalSize + i;
+    }
+    char* text = malloc(totalSize+1);
+    int index = 0;
+
+    for(int i = 1;i<=length;i++){
+        for(int j = 0;j<=i-1;j++){
+            text[index] = str[j];
+            index = index +1;
+        }
+    }
+    text[index] = '\0';
+    return text;
+
 }
