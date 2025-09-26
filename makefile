@@ -1,6 +1,6 @@
-lab1: main.c lab1.c
-	$(CC) -o lab1  main.c lab1.c
+explode: main.c lab1.c
+	$(CC) -o explde  main.c lab1.c
 
 clean:
-	-rm -f lab1
+	-rm -f explode
 	@echo "All clean!"
